@@ -16,7 +16,7 @@ import com.sun.xml.bind.v2.runtime.Location;
 @EnableJpaRepositories
 public interface FoodDeliveryRestaurantRepositery extends JpaRepository<Restaurant, Integer>{
 	//public static final String location = "";
-	@Query("SELECT new com.example.demo.food.Dto.OrderResponse(r.resturantName , r.resturantLocation , r.resturantRating , f.foodName , f.foodRate) FROM Restaurant r JOIN r.fooditems f")	
+	@Query("SELECT new com.example.demo.food.Dto.OrderResponse(r.resturantName , r.resturantLocation , r.resturantRating , f.foodName , f.foodRate) FROM Restaurant r JOIN r.fooditems f WHERE resturantLocation=?")	
 	public List<OrderResponse> getAllRestaurant(String location);
 	
 	
